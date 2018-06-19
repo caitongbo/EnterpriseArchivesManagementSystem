@@ -500,7 +500,7 @@
       <option name="presentableId" value="Default" />
       <updated>1529387521744</updated>
       <workItem from="1529387527016" duration="14351000" />
-      <workItem from="1529405273082" duration="24934000" />
+      <workItem from="1529405273082" duration="25237000" />
     </task>
     <task id="LOCAL-00001" summary="first commit">
       <created>1529430954826</created>
@@ -527,10 +527,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39285000" />
+    <option name="totallyTimeSpent" value="39588000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
