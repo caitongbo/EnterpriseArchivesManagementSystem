@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.enterpriseams.dao.DestroyMapper" >
+  <resultMap id="BaseResultMap" type="com.enterpriseams.entity.Destroy" >
+    <id column="DestroyId" property="destroyid" jdbcType="INTEGER" />
+    <result column="ArchiveId" property="archiveid" jdbcType="VARCHAR" />
+    <result column="LoginId" property="loginid" jdbcType="VARCHAR" />
+    <result column="DestroyTime" property="destroytime" jdbcType="TIMESTAMP" />
+    <result column="Reason" property="reason" jdbcType="VARCHAR" />
+    <result column="Remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    DestroyId, ArchiveId, LoginId, DestroyTime, Reason, Remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from destroy
+    where DestroyId = #{destroyid,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from destroy
+    where DestroyId = #{destroyid,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.enterpriseams.entity.Destroy" >
+    insert into destroy (DestroyId, ArchiveId, LoginId, 
+      DestroyTime, Reason, Remark
+      )
+    values (#{destroyid,jdbcType=INTEGER}, #{archiveid,jdbcType=VARCHAR}, #{loginid,jdbcType=VARCHAR}, 
+      #{destroytime,jdbcType=TIMESTAMP}, #{reason,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.enterpriseams.entity.Destroy" >
+    insert into destroy
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="destroyid != null" >
+        DestroyId,
+      </if>
+      <if test="archiveid != null" >
+        ArchiveId,
+      </if>
+      <if test="loginid != null" >
+        LoginId,
+      </if>
+      <if test="destroytime != null" >
+        DestroyTime,
+      </if>
+      <if test="reason != null" >
+        Reason,
+      </if>
+      <if test="remark != null" >
+        Remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="destroyid != null" >
+        #{destroyid,jdbcType=INTEGER},
+      </if>
+      <if test="archiveid != null" >
+        #{archiveid,jdbcType=VARCHAR},
+      </if>
+      <if test="loginid != null" >
+        #{loginid,jdbcType=VARCHAR},
+      </if>
+      <if test="destroytime != null" >
+        #{destroytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reason != null" >
+        #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.enterpriseams.entity.Destroy" >
+    update destroy
+    <set >
+      <if test="archiveid != null" >
+        ArchiveId = #{archiveid,jdbcType=VARCHAR},
+      </if>
+      <if test="loginid != null" >
+        LoginId = #{loginid,jdbcType=VARCHAR},
+      </if>
+      <if test="destroytime != null" >
+        DestroyTime = #{destroytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reason != null" >
+        Reason = #{reason,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        Remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where DestroyId = #{destroyid,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.enterpriseams.entity.Destroy" >
+    update destroy
+    set ArchiveId = #{archiveid,jdbcType=VARCHAR},
+      LoginId = #{loginid,jdbcType=VARCHAR},
+      DestroyTime = #{destroytime,jdbcType=TIMESTAMP},
+      Reason = #{reason,jdbcType=VARCHAR},
+      Remark = #{remark,jdbcType=VARCHAR}
+    where DestroyId = #{destroyid,jdbcType=INTEGER}
+  </update>
+</mapper>
