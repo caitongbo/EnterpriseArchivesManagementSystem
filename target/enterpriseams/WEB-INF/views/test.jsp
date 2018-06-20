@@ -218,7 +218,7 @@
             //遍历给ul添加页码提示
             ul.append(numLi);
         });
-        //添加下一页和末页的提示  
+        //添加下一页和末页的提示
         ul.append(nextPageLi).append(lastPageLi);
         //把ul加入到nav元素中
         var navEle=$("<nav></nav>").append(ul);
