@@ -30,5 +30,6 @@ public class DestroyServiceImpl implements DestroyService {
     public List<Destroy> getAll(String keyword,String timeStart,String timeEnd) {
 
         return destroyMapper.findAll(keyword,timeStart,timeEnd);
+
     }
 }
