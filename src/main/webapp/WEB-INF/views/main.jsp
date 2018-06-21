@@ -28,21 +28,27 @@
             }
             return false;
         }
+        function exit(){
+            if(confirm("确认退出吗？")){
+                return true;
+            }
+            return false;
+        }
 	</script>
 </head>
 <body>
 
 <div class="font_content" align ="center">
 	<form name ="search"  method ="post" action="${pageContext.request.contextPath}/search">
-		<tr>
-			<select class="selectpicker" multiple data-live-search="false" title="用户ID">
-				<option value="2">用户ID</option>
-			</select>
-			<td><input type="text" id="keyword" name="keyword"></td>
-			<td >开始时间：<input type="text" id="timeStart" name="timeStart"></td>
-			<td >结束时间：<input type="text" id="timeEnd" name="timeEnd"></td>
-			<td><input type="submit" value="搜索" class="btn btn-default"/></td>
+		<table>
+			<td>用户ID：<input type="text" id="keyword" name="keyword"></td>
+			<td>&nbsp开始时间：<input type="text" id="timeStart" name="timeStart"></td>
+			<td>&nbsp结束时间：<input type="text" id="timeEnd" name="timeEnd"></td>
+			<td>&nbsp&nbsp&nbsp<input type="submit" value="搜索" class="btn btn-default"/></td>
+			&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+			<td style="text-align:right">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="${pageContext.request.contextPath}/login" onclick="return exit();">退出系统</a></td>
 		</tr>
+		</table>
 	</form>
 </div>
 

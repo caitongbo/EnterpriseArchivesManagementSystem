@@ -5,9 +5,9 @@
 <title>µÇÂ¼Ò³Ãæ</title>
 </head>
 <body>
-
+<div align="center">
 	<form action="${pageContext.request.contextPath}/login" method="post">
-		<table>
+		<table align="center">
 			<tr>
 				<td><label>µÇÂ¼Ãû</label></td>
 				<td><input type="text" id="loginname" name="loginname"></td>
@@ -17,10 +17,11 @@
 				<td><input type="password" id="loginpwd" name="loginpwd"></td>
 			</tr>
 			<tr>
-				<td><input type="submit" value="µÇÂ¼" /></td>
+				<td colspan="2" align="center"><input type="submit" value="µÇÂ¼" style="width: 100px"></td>
 			</tr>
 		</table>
 		<font color="red">${requestScope.message}</font>
 	</form>
+</div>
 </body>
 </html>
