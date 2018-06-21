@@ -32,11 +32,9 @@ public class DestroyController {
     }
     @RequestMapping("/search")
     public String search(Model model,@RequestParam("keyword") String keyword, @RequestParam("timeStart") String timeStart,@RequestParam("timeEnd") String timeEnd){
-        List<Destroy> destroys = destroyService.getAll(keyword,timeStart,timeEnd); //调用业务层方法
-        model.addAttribute("destroys",destroys);//把从数据库取到的数据放入到model中
-        System.out.printf(timeStart);
-        System.out.println(timeEnd);
-        return "main";
+           List<Destroy> destroys = destroyService.getAll(keyword, timeStart, timeEnd); //调用业务层方法
+           model.addAttribute("destroys", destroys);//把从数据库取到的数据放入到model中
+           return "main";
     }
     @RequestMapping(value = "/delete/{destroyid}",method = RequestMethod.GET)
     public String delete(Model model, @PathVariable String destroyid) {
