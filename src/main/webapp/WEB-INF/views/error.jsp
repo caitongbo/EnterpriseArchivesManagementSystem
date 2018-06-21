@@ -8,9 +8,9 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>404页面</title>
 </head>
 <body>
-<h1>出错啦！！</h1>>
+<h1>404，未找到 Not Found！！</h1>>
 </body>
 </html>

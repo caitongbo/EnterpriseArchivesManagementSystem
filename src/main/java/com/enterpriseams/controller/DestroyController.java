@@ -24,17 +24,17 @@ public class DestroyController {
     @Qualifier("destroyService")   //这里使用@ualifier注解注入bookService业务层
     private DestroyService destroyService;
 
-    @RequestMapping("/main")  //处理main请求
+    @RequestMapping("/destroyQuery")  //处理main请求
     public String main(Model model,String keyword,String timeStart,String timeEnd){
         List<Destroy> destroys = destroyService.getAll(keyword,timeStart,timeEnd); //调用业务层方法
         model.addAttribute("destroys",destroys);//把从数据库取到的数据放入到model中
-        return "main";
+        return "destroyQuery";
     }
     @RequestMapping("/search")
     public String search(Model model,@RequestParam("keyword") String keyword, @RequestParam("timeStart") String timeStart,@RequestParam("timeEnd") String timeEnd){
            List<Destroy> destroys = destroyService.getAll(keyword, timeStart, timeEnd); //调用业务层方法
            model.addAttribute("destroys", destroys);//把从数据库取到的数据放入到model中
-           return "main";
+           return "destroyQuery";
     }
     @RequestMapping(value = "/delete/{destroyid}",method = RequestMethod.GET)
     public String delete(Model model, @PathVariable String destroyid) {
@@ -42,7 +42,7 @@ public class DestroyController {
         List<Destroy> destroys = destroyService.delSelect(i); //调用业务层方法
         model.addAttribute("destroys"   ,destroys);//把从数据库取到的数据放入到model中
         System.out.printf("%d",i);
-        return "redirect:/main";
+        return "redirect:/destroyQuery";
     }
 
 
