@@ -28,8 +28,11 @@ public class DestroyServiceImpl implements DestroyService {
 
     @Transactional(readOnly=true) //数据库的读取方式为：只读
     public List<Destroy> getAll(String keyword,String timeStart,String timeEnd) {
-
         return destroyMapper.findAll(keyword,timeStart,timeEnd);
+    }
 
+    @Transactional(readOnly=true) //数据库的读取方式为：只读
+    public List<Destroy> delSelect(int destroyid) {
+        return destroyMapper.delSelect(destroyid);
     }
 }

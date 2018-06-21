@@ -12,4 +12,5 @@ import java.util.List;
  */
 public interface DestroyService {
     List<Destroy> getAll(String keyword,String timeStart,String timeEnd);
+    List<Destroy> delSelect(int destroyid);
 }

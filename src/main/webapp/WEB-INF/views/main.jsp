@@ -13,7 +13,6 @@
 	<script language="javascript" type="text/javascript" src="${pageContext.request.contextPath}/js/laydate/laydate.js"></script>
 	<script src="${pageContext.request.contextPath}/js/bootstrap-select.js"></script>
 	<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 	<script>
         laydate.render({
             elem: '#timeStart'
@@ -23,31 +22,38 @@
             elem: '#timeEnd'
             ,type: 'datetime'
         });
+        function del(){
+            if(confirm("确认删除吗？")){
+                return true;
+            }
+            return false;
+        }
 	</script>
 </head>
 <body>
 
 <div class="font_content" align ="center">
 	<form name ="search"  method ="post" action="${pageContext.request.contextPath}/search">
-			<tr>
-				<select class="selectpicker" multiple data-live-search="false" title="作者号">
-					<option value="2">作者号</option>
-				</select>
-				<td><input type="text" id="keyword" name="keyword"></td>
-				<td >开始时间：<input type="text" id="timeStart" name="timeStart"></td>
-				<td >结束时间：<input type="text" id="timeEnd" name="timeEnd"></td>
-				<td><input type="submit" value="搜索" class="btn btn-default"/></td>
-			</tr>
+		<tr>
+			<select class="selectpicker" multiple data-live-search="false" title="用户ID">
+				<option value="2">用户ID</option>
+			</select>
+			<td><input type="text" id="keyword" name="keyword"></td>
+			<td >开始时间：<input type="text" id="timeStart" name="timeStart"></td>
+			<td >结束时间：<input type="text" id="timeEnd" name="timeEnd"></td>
+			<td><input type="submit" value="搜索" class="btn btn-default"/></td>
+		</tr>
 	</form>
 </div>
 
 <div align="center">
+	<%--<form action="${pageContext.request}"--%>
 	<table class="table table-bordered" >
 		<tr>
 			<th  style="text-align:center;">编号</th>
-			<th  style="text-align:center;">销毁id</th>
-			<th  style="text-align:center;">档案id</th>
-			<th  style="text-align:center;">作者id</th>
+			<th  style="text-align:center;">销毁ID</th>
+			<th  style="text-align:center;">档案ID</th>
+			<th  style="text-align:center;">用户ID</th>
 			<th  style="text-align:center;">销毁时间</th>
 			<th  style="text-align:center;">销毁原因</th>
 			<th  style="text-align:center;">备注</th>
@@ -62,12 +68,8 @@
 				<td align="center" valign="middle"><fmt:formatDate value='${destroy.destroytime}' pattern='yyyy-MM-dd  HH:mm:ss '/></td>
 				<td align="center" valign="middle">${destroy.reason}</td>
 				<td align="center" valign="middle">${destroy.remark}</td>
-						<td align="center" valign="middle">
-					<button type="button" class="btn btn-danger btn-sm" aria-label="Left Align" >
-						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
-						删除
-					</button>
-						</td>
+				<td align="center" valign="middle" ><a href="${pageContext.request.contextPath}/delete/${destroy.destroyid}" onclick="return del();"> 删除</a>
+				</td>
 			</tr>
 			</tr>
 		</c:forEach>

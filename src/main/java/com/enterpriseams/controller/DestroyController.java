@@ -6,7 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -35,6 +37,14 @@ public class DestroyController {
         System.out.printf(timeStart);
         System.out.println(timeEnd);
         return "main";
+    }
+    @RequestMapping(value = "/delete/{destroyid}",method = RequestMethod.GET)
+    public String delete(Model model, @PathVariable String destroyid) {
+        int i = Integer.parseInt(destroyid);
+        List<Destroy> destroys = destroyService.delSelect(i); //调用业务层方法
+        model.addAttribute("destroys"   ,destroys);//把从数据库取到的数据放入到model中
+        System.out.printf("%d",i);
+        return "redirect:/main";
     }
 
 
